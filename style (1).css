@@ -1,0 +1,203 @@
+/* --- Color Palette & Global Styles --- */
+:root {
+    --primary-color: #0056b3; /* Professional blue */
+    --secondary-color: #007bff;
+    --light-gray: #f0f2f5;
+    --dark-text: #333;
+    --border-color: #ddd;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--light-gray);
+    color: var(--dark-text);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+/* --- Header Section (Image Left, Big Centered Text, Gradient BG) --- */
+header {
+    /* Soft blue gradient background */
+    background: linear-gradient(135deg, #6fb7eb 0%, #ffffff 100%);
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+    display: flex; /* Arranges items side-by-side */
+    flex-direction: row;
+    align-items: center; /* Vertically centers the items */
+    border-bottom: 3px solid var(--primary-color); /* Adds a nice colored bottom edge */
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid var(--primary-color);
+    object-fit: cover;
+    margin-right: 30px; /* Creates space between photo and text */
+    flex-shrink: 0; /* Prevents image from shrinking on smaller screens */
+    background-color: white; /* Ensures photo background is clean if image is transparent */
+}
+
+.header-info {
+    flex-grow: 1; /* Allows this div to take up all remaining space */
+    text-align: center; /* Centers the H1 and NAV inside it */
+}
+
+.header-info h1 {
+    margin: 0 0 15px 0;
+    font-size: 34px; /* Big text */
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); /* Adds subtle dimension */
+}
+.header-info h2{
+      margin: 0 0 15px 0;
+    font-size: 24px; /* Big text */
+    font-weight: 400;
+    color: rgb(2, 3, 90);
+}
+
+.header-info nav {
+    font-size: 20px; /* Big text */
+    font-weight: 700;
+}
+
+.header-info nav a {
+    color: var(--dark-text);
+    text-decoration: none;
+    margin: 0 15px; /* Spacing between nav links */
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.header-info nav a:hover {
+    color: var(--primary-color);
+    background-color: rgba(0, 86, 179, 0.1); /* Subtle hover background effect */
+}
+
+
+/* --- Main Content Sections --- */
+section {
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+}
+
+section h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+
+/* --- Schools Attended Section (Interactive Grid) --- */
+.schools-grid {
+    display: grid;
+    /* Responsive columns: Fits as many 200px columns as possible */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.school-item {
+    background-color: var(--light-gray);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.school-item:hover {
+    transform: translateY(-5px); /* Lifts the card on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    border-color: var(--secondary-color);
+}
+
+.school-item .year {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.school-item p {
+    margin: 0;
+    font-size: 16px;
+}
+
+
+/* --- Work Experience Section (Styled List) --- */
+#work-experience ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+    text-align: left;
+}
+
+#work-experience li {
+    padding-left: 30px;
+    position: relative;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+/* Custom bullet points for a modern look */
+#work-experience li::before {
+    content: '➤'; /* You can use other symbols like '•' or '➤' */
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1; /* Aligns the checkmark correctly */
+}
+
+
+/* --- Responsive Design for Tablets and Phones --- */
+@media (max-width: 680px) {
+    body {
+        padding: 10px;
+    }
+
+    /* Stack header items vertically on small screens */
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .profile-photo {
+        margin-right: 0; /* Remove side margin */
+        margin-bottom: 20px; /* Add space below photo */
+    }
+
+    .header-info h1 {
+        font-size: 24px; /* Adjust font size for mobile */
+    }
+    
+    .header-info nav a {
+         display: inline-block; /* Helps with spacing on small screens */
+         margin: 5px;
+    }
+
+    section {
+        padding: 20px;
+    }
+}
